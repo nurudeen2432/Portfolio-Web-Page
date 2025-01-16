@@ -6,4 +6,10 @@ body{
 height: 100vh;
 background: #161513;
 color: white;
+font-family: "Afacad Flux", serif;
+font-optical-sizing: auto;
+font-weight: 5px;
+font-style: normal;
+font-variation-settings:
+  "slnt" 0;
 }
