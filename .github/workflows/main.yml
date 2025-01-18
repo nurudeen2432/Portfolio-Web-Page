@@ -3,32 +3,46 @@ name: Deploy to Netlify
 on:
   push:
     branches:
-      - main
+      - main  # Trigger on push to main branch
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Code
-        uses: actions/checkout@v3
+      - name: Checkout Repository
+        uses: actions/checkout@v2
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
         with:
-          node-version: 18
+          node-version: '20.11.1'  # Adjust the Node.js version as per your requirements
+
+      - name: Cache Node Modules
+        uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-modules-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-modules-
 
       - name: Install Dependencies
-        run: npm install
+        run: |
+          cd portfolio-react  # Navigate into your portfolio-react folder
+          npm install         # Install the dependencies
 
-      - name: Build the App
-        run: npm run build
+      - name: Build the Project
+        run: |
+          cd portfolio-react  # Navigate into your portfolio-react folder
+          npm run build       # Build the project
 
       - name: Install Netlify CLI
-        run: npm install -g netlify-cli
+        run: npm install -g netlify-cli  # Install the Netlify CLI globally
 
       - name: Deploy to Netlify
         run: |
-          netlify deploy --prod --dir=dist
+          cd portfolio-react  # Navigate into your portfolio-react folder
+          netlify deploy --prod --dir=./build  # Deploy the build folder to Netlify
         env:
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}  # Optionally, if you have the token
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
