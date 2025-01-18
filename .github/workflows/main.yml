@@ -36,13 +36,18 @@ jobs:
           cd portfolio-react  # Navigate into your portfolio-react folder
           npm run build       # Build the project
 
+      - name: Check Build Folder
+        run: |
+          cd portfolio-react
+          ls -alh dist  # Verify the contents of the dist folder
+
       - name: Install Netlify CLI
         run: npm install -g netlify-cli  # Install the Netlify CLI globally
 
       - name: Deploy to Netlify
         run: |
           cd portfolio-react  # Navigate into your portfolio-react folder
-          netlify deploy --prod --dir=./build  # Deploy the build folder to Netlify
+          netlify deploy --prod --dir=./dist  # Deploy the dist folder to Netlify
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
