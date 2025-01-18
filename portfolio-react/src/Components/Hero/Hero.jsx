@@ -3,6 +3,17 @@ import './Hero.css'
 import profile_img from '../../assets/photo-d.svg'
 import AnchorLink from 'react-anchor-link-smooth-scroll'
 const Hero = () => {
+
+  const downloadResume = () => {
+    // Create a link element
+    const link = document.createElement('a');
+    // Set the path to your resume file
+    link.href = '/NurudeenResumeDev.pdf'; 
+    link.download = 'Nurudeen_Durowade_Resume.pdf'; 
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+};
   return (
     <div id='home' className='hero'>
         <img src={profile_img} alt="" style={{ width: "300px", height: "300px" }} />
@@ -15,7 +26,10 @@ const Hero = () => {
           <AnchorLink className='anchor-link' offset={50} href='#contact'>Connect with me</AnchorLink>
             
         </div>
-        <div className="hero-resume">
+        <div className="hero-resume"
+         onClick={downloadResume}
+         style={{ cursor: 'pointer' }}
+        >
             My resume
         </div>
       </div>
