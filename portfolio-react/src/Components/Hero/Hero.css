@@ -66,6 +66,11 @@ border: 2px solid white;
 }
 
 @media(max-width:768px){
+    #home.hero {
+        width: 90%; /* Adjust width as needed */
+        max-width: 600px; /* Optional: limit the max width */
+        padding: 30px 150px; /* Optional: Add padding inside the container */
+    }
     .hero img{
         margin-top: 120px;
         width: 260px;
@@ -104,6 +109,8 @@ border: 2px solid white;
     }
 }
 @media(max-width:375px){
+
+  
     .hero img {
     margin-top: 80px;
     width: 200px;

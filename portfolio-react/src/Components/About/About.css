@@ -167,10 +167,12 @@ background-clip: text;
  
 @media(max-width:768px){
    .about{
-    gap: 80px;
+    gap: 70px;
     margin: 50px 70px;
     align-items: start;
-
+    width: 90%; 
+    max-width: 600px; 
+    padding: 30px 90px; 
    } 
    .about-title h1{
     font-size: 50px;

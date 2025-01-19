@@ -84,6 +84,9 @@
         align-items: start;
         gap:70px;
         margin: 20px 70px;
+        width: 90%; 
+        max-width: 600px; 
+        padding: 30px 30px; 
     }
     .services-title h1{
         padding: 0;

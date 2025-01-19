@@ -110,6 +110,9 @@
        gap: 50px;
        margin: 50px 70px;
        align-items: start;
+       width: 90%; 
+       max-width: 600px; 
+       padding: 30px 40px; 
 
     }
     .mywork-title h1{
