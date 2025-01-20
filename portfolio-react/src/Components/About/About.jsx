@@ -1,10 +1,81 @@
-import React from "react";
+import React, { useState, useEffect } from "react"; 
 import "./About.css";
 import theme_pattern from "../../assets/theme_pattern.svg";
-
 import profile_img from "../../assets/photo-d.svg";
 
 const About = () => {
+  const [widths, setWidths] = useState({
+    microservices: '60%',
+    kubernetes: '65%',
+    docker: '65%',
+    azure: '70%',
+    python: '50%',
+    bash: '50%',
+    git: '70%',
+    aspnet: '60%',
+    sql: '55%',
+    frontend: '60%',
+  });
+
+  const adjustWidths = () => {
+    const screenWidth = window.innerWidth;
+
+    if (screenWidth < 480) {
+      setWidths({
+        microservices: '80%',
+        kubernetes: '80%',
+        docker: '80%',
+        azure: '80%',
+        python: '80%',
+        bash: '80%',
+        git: '80%',
+        aspnet: '80%',
+        sql: '80%',
+        frontend: '80%',
+      });
+    } else if (screenWidth < 768) {
+      setWidths({
+        microservices: '40%',
+        kubernetes: '45%',
+        docker: '45%',
+        azure: '50%',
+        python: '35%',
+        bash: '35%',
+        git: '50%',
+        aspnet: '40%',
+        sql: '35%',
+        frontend: '40%',
+      });
+    } else {
+      setWidths({
+        microservices: '60%',
+        kubernetes: '65%',
+        docker: '65%',
+        azure: '70%',
+        python: '50%',
+        bash: '50%',
+        git: '70%',
+        aspnet: '60%',
+        sql: '55%',
+        frontend: '60%',
+      });
+    }
+  };
+
+  useEffect(() => {
+    adjustWidths(); 
+
+    const handleResize = () => {
+      adjustWidths(); 
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   return (
     <div id="about" className="about">
       <div className="about-title">
@@ -32,7 +103,6 @@ const About = () => {
             </p>
 
             <p>
-              {" "}
               In addition to my development skills, I bring a strong command of
               DevOps technologies, including Kubernetes for container
               orchestration, Docker for containerization, Git for version
@@ -45,43 +115,43 @@ const About = () => {
           <div className="about-skills">
             <div className="about-skill">
               <p>Microservices </p>
-              <hr style={{ width: "60%" }} />
+              <hr style={{ width: widths.microservices }} />
             </div>
             <div className="about-skill">
               <p>Kubernetes</p>
-              <hr style={{ width: "65%" }} />
+              <hr style={{ width: widths.kubernetes }} />
             </div>
             <div className="about-skill">
               <p>Docker</p>
-              <hr style={{ width: "65%" }} />
+              <hr style={{ width: widths.docker }} />
             </div>
             <div className="about-skill">
               <p> Azure</p>
-              <hr style={{ width: "70%" }} />
+              <hr style={{ width: widths.azure }} />
             </div>
             <div className="about-skill">
               <p>Python</p>
-              <hr style={{ width: "50%" }} />
+              <hr style={{ width: widths.python }} />
             </div>
             <div className="about-skill">
               <p>Bash</p>
-              <hr style={{ width: "50%" }} />
+              <hr style={{ width: widths.bash }} />
             </div>
             <div className="about-skill">
               <p>Git </p>
-              <hr style={{ width: "70%" }} />
+              <hr style={{ width: widths.git }} />
             </div>
             <div className="about-skill">
               <p>ASP.NET</p>
-              <hr style={{ width: "60%" }} />
+              <hr style={{ width: widths.aspnet }} />
             </div>
             <div className="about-skill">
               <p>SQL</p>
-              <hr style={{ width: "55%" }} />
+              <hr style={{ width: widths.sql }} />
             </div>
             <div className="about-skill">
               <p>Frontend</p>
-              <hr style={{ width: "60%" }} />
+              <hr style={{ width: widths.frontend }} />
             </div>
           </div>
         </div>

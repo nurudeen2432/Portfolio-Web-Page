@@ -124,7 +124,7 @@
     transition: 0.3s;
 }
 
-@media (max-width: 375px) {
+/* @media (max-width: 375px) {
     .contact {
         gap: 30px;
         margin: 30px 20px;
@@ -172,7 +172,7 @@
         font-size: 16px;
         padding: 10px 20px;
     }
-}
+} */
 
 @media(max-width:768px){
     .contact{
