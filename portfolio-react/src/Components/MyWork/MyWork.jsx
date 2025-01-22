@@ -17,7 +17,11 @@ const MyWork = () => {
               <img
                 key={index}
                 src={work.w_img}
-                onClick={() => (window.open(work.url, '_blank'))}
+                onClick={() => {
+                    if (work.url && work.url.trim() !== '') {
+                        window.open(work.url, '_blank');
+                    }
+                }}
                 className={`project-img ${work.w_no === 1 ? 'leave-project' : ''}`}
                 alt={work.w_name}
               />

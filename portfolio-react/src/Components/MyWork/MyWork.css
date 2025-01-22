@@ -1,19 +1,10 @@
-
-
 .work-item:nth-child(1) img {
-    width: 90%; 
-    height: 90%; 
-    border-radius: 25px; 
-    z-index: -1;
-    transition: transform 0.3s ease, border-radius 0.3s ease; 
-  }
+    width: 420px; 
+    height: 260px;
+    border-radius: 10px;
+    object-fit: cover; 
+}
   
-  .work-item:nth-child(1) img:hover{
-    transform: scale(1.01);
-    border: 4px solid #ff00ff;
-    border-radius: 5px;
-    transition: 0.3s;
-  }
 
   
 .mywork{
@@ -56,12 +47,11 @@
     cursor: pointer;
 }
 
-.mywork-container img:hover{
-    transform: scale(1.10);
-    border: 4px solid #ff00ff;
+.mywork-container img:hover {
+    transform: scale(1.03);  
+    border: 2px solid #ff00ff;  
     border-radius: 10px;
-    transition: 0.3s;
-
+    transition: 0.2s ease;  
 }
 .mywork-showmore{
     display: flex;
@@ -95,55 +85,68 @@
   
 }
 @media (max-width: 768px) {
+    .work-item:nth-child(1) img {
+        width: 280px;  
+        height: 220px; 
+        border-radius: 10px;
+        object-fit: cover; 
+        margin-left: 50px;
+    }
 
     .work-item p {
         background: linear-gradient(264deg, #DF8908 -5.09%, #B415ff 106.28%);
         -webkit-background-clip: text;
         background-clip: text;
         color: transparent;
-        font-size: 12px;
+        font-size: 16px;
         font-weight: 400;
-        margin-top: -10px; /* Adjust spacing above the text */
-        padding: 10px; /* Add padding for better readability */
+        margin-top: 15px; 
+        padding: 0 10px;
         text-align: center;
-        max-width: 90%; /* Prevent text from being too wide */
-        margin-left: auto; /* Center the text */
+        max-width: 90%; 
+        margin-left: 20px; 
         margin-right: auto;
-        word-wrap: break-word; /* Ensure long text wraps properly */
+        word-wrap: break-word; 
     }
 
-    /* My Work Section */
+    
     .mywork {
-        gap: 30px;
-        margin: 20px 70px; /* Adjust margin to fit smaller screens */
-        align-items: start;
+        margin: 20px 50px; 
+        gap: 20px;
+        display: flex;  /* If not already set */
+        justify-content: center;  /* Centers content horizontally */
+        flex-wrap: wrap;
     }
+    
+    .work-item img {
+        width: 100%; 
+        height: auto; 
+        margin: 0 auto;  /* Centers the image instead of using margin-left */
+        display: block;  /* Helps with centering */
+    }
+
+
 
     .mywork-title h1 {
-        padding: 0;
-        font-size: 24px;
-        font-weight: 600;
+        font-size: 35px;  
     }
 
     .mywork-title img {
-        width: 100px;
-        margin-right: auto; /* Align the image to the center */
-        margin-left: auto;
-        display: block; /* Ensure the image is block-level for proper alignment */
+        width: 120px;  
     }
 
     .mywork-container {
         display: flex;
-        flex-direction: column; /* Make items stack vertically */
+        flex-direction: column; 
         gap: 15px;
-        align-items: center; /* Center align items horizontally */
+        align-items: center; 
     }
 
     .mywork-container img {
-        width: 80%; /* Scale the image size to fit smaller screens */
+        width: 80%; 
         height: auto;
-        display: block; /* Prevent default inline behavior */
-        margin: 0 auto; /* Center the image */
+        display: block; 
+        margin: 0 auto; 
     }
 
     .mywork-showmore {
