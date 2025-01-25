@@ -124,7 +124,7 @@ const Contact = () => {
               <img src={mail_icon} alt="" /> <p>nurudeendurowade@gmail.com</p>
             </div>
             <div className="contact-detail">
-              <img src={call_icon} alt="" /> <p>+2349164322370</p>
+              <img src={call_icon} alt="" /> <p>+2348102308366</p>
             </div>
             <div className="contact-detail">
               <img src={location_icon} alt="" /> <p> LA, Nigeria</p>
