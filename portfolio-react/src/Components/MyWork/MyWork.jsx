@@ -22,7 +22,10 @@ const MyWork = () => {
                         window.open(work.url, '_blank');
                     }
                 }}
-                className={`project-img ${work.w_no === 1 ? 'leave-project' : ''}`}
+                className={`project-img 
+                  ${work.w_no === 1 ? 'leave-project' : ''}
+                  ${work.w_no === 2 ? 'chiwawa': ''}
+                  `}
                 alt={work.w_name}
               />
               <p className="work-description">{work.desc}</p>
