@@ -8,7 +8,7 @@ const Hero = () => {
     // Create a link element
     const link = document.createElement('a');
     // Set the path to your resume file
-    link.href = '/Nurudeen_Updated_Resume.pdf'; 
+    link.href = '/Nurudeen - CV2025.pdf'; 
     link.download = 'Nurudeen_Durowade_Resume.pdf'; 
     document.body.appendChild(link);
     link.click();
