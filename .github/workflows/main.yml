@@ -19,7 +19,7 @@ jobs:
           node-version: '20.11.1'  # Adjust the Node.js version as per your requirements
 
       - name: Cache Node Modules
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: ~/.npm
           key: ${{ runner.os }}-node-modules-${{ hashFiles('**/package-lock.json') }}
